@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Time-Restricted Audio</title>
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+        const targetDate = new Date('2024-11-9T21:15:00'); // Set your specific date and time
+        const now = new Date();
+
+        if (now >= targetDate) {
+            document.getElementById('content').innerHTML = `
+                <audio controls>
+                    <source src="https://drive.google.com/uc?export=download&id=1v2mMeRjPJXCIEXYX01z9EvGWuCvw0Q_c" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>`;
+        } else {
+            document.getElementById('content').textContent = "This audio will be available on December 25, 2024.";
+        }
+    </script>
+</body>
+</html>
