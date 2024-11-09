@@ -6,17 +6,23 @@
 <body>
     <div id="content"></div>
     <script>
-        const targetDate = new Date('2024-11-9T21:15:00'); // Set your specific date and time
+        // Set the target date and time to November 9, 2024, at 22:45 HKT (Hong Kong Time)
+        const targetDate = new Date('2024-11-09T22:45:00+08:00'); // HKT is UTC+8
         const now = new Date();
 
+        // Check if the current date and time is past the target date
         if (now >= targetDate) {
+            // Display the audio player
             document.getElementById('content').innerHTML = `
                 <audio controls>
                     <source src="https://drive.google.com/uc?export=download&id=1v2mMeRjPJXCIEXYX01z9EvGWuCvw0Q_c" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>`;
         } else {
-            document.getElementById('content').textContent = "This audio will be available Soon.";
+            // Display a message if accessed before the target date
+            const releaseDate = targetDate.toLocaleString('en-US', { timeZone: 'Asia/Hong_Kong' });
+            document.getElementById('content').textContent = 
+                `This audio will be available on ${releaseDate}.`;
         }
     </script>
 </body>
